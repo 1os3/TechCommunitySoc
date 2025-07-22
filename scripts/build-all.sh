@@ -56,7 +56,7 @@ cd "${PROJECT_ROOT}/frontend/user-app"
 
 # 安装依赖
 echo "📥 安装用户前端依赖..."
-npm ci
+npm ci --force
 
 # 设置环境变量并构建
 echo "🔨 构建 React 应用..."
@@ -75,7 +75,7 @@ cd "${PROJECT_ROOT}/frontend/administrator-app"
 
 # 安装依赖
 echo "📥 安装管理员前端依赖..."
-npm ci
+npm ci --force
 
 # 设置环境变量并构建
 echo "🔨 构建 React 应用..."
