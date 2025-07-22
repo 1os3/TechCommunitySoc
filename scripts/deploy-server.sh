@@ -26,7 +26,7 @@ pm2 delete $APP_NAME-admin 2>/dev/null || true
 
 # 更新代码
 echo "📡 更新代码..."
-git pull origin main
+git pull origin master
 
 # 构建后端
 echo "🏗️  构建后端..."

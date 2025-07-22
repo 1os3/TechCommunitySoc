@@ -358,7 +358,7 @@ tail -f /var/log/nginx/techcommunity_*.log
 ```bash
 # 1. 更新代码
 cd /opt/techcommunity
-git pull origin main
+git pull origin master
 
 # 2. 重新构建
 ./scripts/build-all.sh
