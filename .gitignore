@@ -23,7 +23,6 @@ backend/logs/
 dist/
 build/
 backend/dist/
-deploy
 
 # 缓存目录
 .cache/
