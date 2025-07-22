@@ -1,0 +1,444 @@
+/* Admin Management Styles */
+.admin-management {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Page Header */
+.admin-management .page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.admin-management .page-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.admin-management .page-header p {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.admin-management .header-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.admin-management .create-admin-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-management .create-admin-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.admin-management .create-admin-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Access Denied */
+.admin-management.access-denied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.access-denied-content {
+  text-align: center;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+.access-denied-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.access-denied-content h2 {
+  color: #ff4d4f;
+  margin: 0 0 12px 0;
+  font-size: 24px;
+}
+
+.access-denied-content p {
+  color: #666;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Create Admin Form */
+.create-admin-form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+.create-admin-form-card h3 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.create-admin-form .form-info {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 20px;
+}
+
+.create-admin-form .form-info p {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.create-admin-form .form-info ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.create-admin-form .form-info li {
+  margin-bottom: 4px;
+}
+
+.create-admin-form .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.create-admin-form .form-preview {
+  margin-top: 12px;
+  padding: 12px;
+  background: #e3f2fd;
+  border-radius: 6px;
+  border: 1px solid #bbdefb;
+}
+
+.create-admin-form .preview-info p {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  color: #1976d2;
+}
+
+.create-admin-form .preview-info p:last-child {
+  margin-bottom: 0;
+}
+
+.create-admin-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-admin-form .form-group label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.create-admin-form .form-input {
+  padding: 12px 16px;
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: #fafafa;
+}
+
+.create-admin-form .form-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.create-admin-form .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.create-admin-form .submit-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.create-admin-form .submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.create-admin-form .submit-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.create-admin-form .cancel-button {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #e8e8e8;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.create-admin-form .cancel-button:hover {
+  background: #e8e8e8;
+  color: #333;
+}
+
+/* Error Message */
+.admin-management .error-message {
+  background: #fff2f0;
+  color: #ff4d4f;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ffccc7;
+  font-size: 14px;
+}
+
+.admin-management .loading-message {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Empty State */
+.admin-management .empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+}
+
+.admin-management .empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.admin-management .empty-state p {
+  color: #666;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Admin List */
+.admin-list-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+.admin-list-section h2 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.admin-table-container {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.admin-table th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.admin-table tr:hover {
+  background: #f9f9f9;
+}
+
+.admin-table .site-admin-row {
+  background: linear-gradient(135deg, #fff9c4 0%, #fff7a0 100%);
+}
+
+.admin-table .site-admin-row:hover {
+  background: linear-gradient(135deg, #fff6a0 0%, #fff380 100%);
+}
+
+/* Admin Info */
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-username {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.site-admin-badge {
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  color: #8b4513;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* Role Badge */
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.role-badge.site-admin {
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  color: #8b4513;
+}
+
+.role-badge.admin {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1976d2;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-badge.active {
+  background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+  color: #2e7d32;
+}
+
+.status-badge.deleted {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  color: #c62828;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.delete-button {
+  background: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delete-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.no-action-text,
+.deleted-text {
+  color: #999;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-management {
+    padding: 16px;
+  }
+
+  .admin-table-container {
+    font-size: 14px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 8px 12px;
+  }
+
+  .access-denied-content {
+    padding: 24px;
+  }
+
+  .access-denied-icon {
+    font-size: 48px;
+  }
+}
