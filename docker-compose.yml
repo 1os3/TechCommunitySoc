@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_DB: forum_db
       POSTGRES_USER: forum_user
-      POSTGRES_PASSWORD: forum_password
+      POSTGRES_PASSWORD: A2EoJXCeCMBDG2+Fo01LS8ClbVbQ+mv7bsNFwM0LeTM=
       POSTGRES_INITDB_ARGS: "--auth-host=md5"
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -35,8 +35,8 @@ services:
       DB_PORT: 5432
       DB_NAME: forum_db
       DB_USER: forum_user
-      DB_PASSWORD: forum_password
-      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this-in-production}
+      DB_PASSWORD: A2EoJXCeCMBDG2+Fo01LS8ClbVbQ+mv7bsNFwM0LeTM=
+      JWT_SECRET: Wkr0C6NXF/f49vPNPPPG3TD1Q+6UgFEmG74x+tgYxkfBeBe5XvTrEOctrH5T5HbI
       JWT_EXPIRES_IN: 24h
       RATE_LIMIT_WINDOW_MS: 900000
       RATE_LIMIT_MAX_REQUESTS: 100
