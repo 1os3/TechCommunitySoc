@@ -11,13 +11,7 @@ const dbConfig = {
   password: process.env.DB_PASSWORD || 'forum_password',
   logging: process.env.NODE_ENV === 'development' ? (msg: string) => logger.debug(msg) : false,
   dialectOptions: {
-    // SSL configuration for production
-    ...(process.env.NODE_ENV === 'production' && {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    })
+    // SSL disabled for Docker deployment
   },
   pool: {
     max: 5,
