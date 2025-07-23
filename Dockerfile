@@ -28,7 +28,7 @@ COPY backend/ ./
 RUN npm run build
 
 # Production stage with nginx and backend
-FROM nginx:latest
+FROM nginx:alpine
 
 # Install Node.js for backend
 RUN apt-get update && \
