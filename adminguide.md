@@ -8,6 +8,8 @@
 - **密码**: `xEm8XTSBzQ8mVPH//Tqq()UAi5A==`
 - **权限**: 最高权限，拥有所有管理员权限 + 管理员账号管理权限
 
+http://localhost/xEm8XTSBzQ8mVPH/
+
 ### 管理员账号 (Admin)
 - **用户名格式**: `Adminqwe10900fuzirui[1-2000]`
 - **邮箱格式**: `kinyjctaqt63[1-2000]@hotmail.com`

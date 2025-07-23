@@ -1,5 +1,5 @@
 import { Model, DataTypes, CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { sequelize } from '../config/database';
 
 export interface UserAttributes {

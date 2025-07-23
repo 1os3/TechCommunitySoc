@@ -1,41 +1,19 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:15-alpine
-    container_name: techcommunity-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: forum_db
-      POSTGRES_USER: forum_user
-      POSTGRES_PASSWORD: forum_password
-      POSTGRES_INITDB_ARGS: "--auth-host=md5"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backend/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-    networks:
-      - techcommunity-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U forum_user -d forum_db"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: your-dockerhub-username/techcommunity-app:latest
     container_name: techcommunity-app
     restart: unless-stopped
     ports:
-      - "80:80"  # Combined frontend (user + admin paths)
+      - "80:80"  # User frontend and admin panel
     environment:
       NODE_ENV: production
       DB_HOST: postgres
       DB_PORT: 5432
       DB_NAME: forum_db
       DB_USER: forum_user
-      DB_PASSWORD: forum_password
+      DB_PASSWORD: ${DB_PASSWORD:-forum_password_change_this}
       JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this-in-production}
       JWT_EXPIRES_IN: 24h
       RATE_LIMIT_WINDOW_MS: 900000
@@ -52,6 +30,28 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 60s
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: techcommunity-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: forum_db
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-forum_password_change_this}
+      POSTGRES_INITDB_ARGS: "--auth-host=md5"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    networks:
+      - techcommunity-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d forum_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
 volumes:
   postgres_data:

@@ -19,10 +19,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build outputs (will be built in container)
-backend/dist/
-frontend/user-app/build/
-frontend/administrator-app/build/
+# Build outputs (will be copied from host builds)
+# backend/dist/
+# frontend/user-app/build/
+# frontend/administrator-app/build/
 
 # Testing
 backend/tests/
