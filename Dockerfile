@@ -31,12 +31,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Install Node.js for backend
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs netcat-openbsd && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache nodejs npm curl netcat-openbsd
 
 # Copy nginx configuration
 COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
