@@ -22,7 +22,7 @@ services:
       retries: 5
 
   app:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: techcommunity-app
@@ -39,9 +39,7 @@ services:
       JWT_SECRET: Wkr0C6NXF/f49vPNPPPG3TD1Q+6UgFEmG74x+tgYxkfBeBe5XvTrEOctrH5T5HbI
       JWT_EXPIRES_IN: 24h
       RATE_LIMIT_WINDOW_MS: 900000
-      RATE_LIMIT_MAX_REQUESTS: 100
-      HOT_POSTS_LIMIT: 20
-      RECOMMENDATION_LIMIT: 10
+      RATE_LIMIT_MAX_REQUESTS: 8000
     depends_on:
       postgres:
         condition: service_healthy
