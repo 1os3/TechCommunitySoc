@@ -1,0 +1,123 @@
+/* 管理端增强 Markdown 样式 */
+.enhanced-markdown {
+  line-height: 1.6;
+  color: #333;
+}
+
+.enhanced-markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 8px 0;
+}
+
+.enhanced-markdown a {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.enhanced-markdown a:hover {
+  color: #0056b3;
+  border-bottom-color: #0056b3;
+}
+
+.enhanced-markdown a:visited {
+  color: #6f42c1;
+}
+
+/* LaTeX 样式已删除，使用 KaTeX 原生样式 */
+
+/* 代码块样式 */
+.enhanced-markdown pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+.enhanced-markdown code {
+  background: #e9ecef;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 85%;
+}
+
+.enhanced-markdown pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* 表格样式 */
+.enhanced-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.enhanced-markdown th,
+.enhanced-markdown td {
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.enhanced-markdown th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+/* 引用样式 */
+.enhanced-markdown blockquote {
+  border-left: 4px solid #dee2e6;
+  margin: 16px 0;
+  padding: 0 16px;
+  color: #666;
+}
+
+/* 列表样式 */
+.enhanced-markdown ul,
+.enhanced-markdown ol {
+  padding-left: 20px;
+  margin: 16px 0;
+}
+
+.enhanced-markdown li {
+  margin: 4px 0;
+}
+
+/* 标题样式 */
+.enhanced-markdown h1,
+.enhanced-markdown h2,
+.enhanced-markdown h3,
+.enhanced-markdown h4,
+.enhanced-markdown h5,
+.enhanced-markdown h6 {
+  margin: 24px 0 16px 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.enhanced-markdown h1 {
+  font-size: 2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.enhanced-markdown h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* 分割线样式 */
+.enhanced-markdown hr {
+  border: none;
+  height: 1px;
+  background: #e1e5e9;
+  margin: 24px 0;
+}

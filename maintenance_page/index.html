@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统维护中 - 技术社区</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY2N0VFQSIvPgo8cGF0aCBkPSJNOCAxMkg5LjVWMTZIOEMzLjU4IDE2IDQgMTIuNDIgNCAxNlY4QzQgNS43OSA1Ljc5IDQgOCA0SDE2VjhIOFYxMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yNCAxMkgyMi41VjE2SDI0QzI2LjQyIDE2IDI4IDEyLjQyIDI4IDE2VjhDMjggNS43OSAyNi4yMSA0IDI0IDRIMTZWOEgyNFYxMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xNiAyMEgxMlYyNEgxNlYyMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
+</head>
+<body>
+    <div class="container">
+        <div class="maintenance-box">
+            <div class="icon">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="35" stroke="#667EEA" stroke-width="4" fill="none"/>
+                    <path d="M25 40L35 50L55 30" stroke="#667EEA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1>系统维护升级中</h1>
+            <p class="subtitle">我们正在进行系统升级以提供更好的服务体验</p>
+            <div class="message">
+                <p>维护和升级中，详情请联系</p>
+                <a href="mailto:qwe10900@outlook.com" class="email">qwe10900@outlook.com</a>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <p>系统优化</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <p>性能提升</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <p>安全升级</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p>预计维护时间：1-2小时</p>
+                <p>感谢您的耐心等待</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加动态效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const box = document.querySelector('.maintenance-box');
+            box.style.opacity = '0';
+            box.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                box.style.transition = 'all 0.8s ease';
+                box.style.opacity = '1';
+                box.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -291,6 +291,21 @@ const PostEdit: React.FC = () => {
           </ul>
         </div>
       )}
+
+      <div className="post-edit-tips">
+        <h3>✨ 编辑提示</h3>
+        <ul>
+          <li><strong>Markdown支持：</strong>支持标准 Markdown 格式</li>
+          <li><strong>图表支持：</strong>使用 <code>/mermaid_chart图表代码/mermaid_chart</code> 插入图表</li>
+          <li><strong>数学公式：</strong>使用 <code>$公式$</code> 插入行内公式，<code>$$公式$$</code> 插入块级公式</li>
+          <li><strong>预览功能：</strong>可切换到预览模式查看效果</li>
+        </ul>
+        
+        <div className="mermaid-help-compact">
+          <h4>📊 图表语法</h4>
+          <p>flowchart、sequenceDiagram、classDiagram、gantt</p>
+        </div>
+      </div>
     </div>
   );
 };

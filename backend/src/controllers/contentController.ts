@@ -128,10 +128,11 @@ export class ContentController {
         whereClause.post_id = parseInt(postId);
       }
 
-      // Filter by status
+      // Filter by status - 默认只显示未删除的评论
       if (status === 'deleted') {
         whereClause.is_deleted = true;
-      } else if (status === 'active') {
+      } else {
+        // 对于'active'和'all'（或任何其他值），都只显示未删除的评论
         whereClause.is_deleted = false;
       }
 

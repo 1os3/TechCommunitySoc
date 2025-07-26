@@ -219,9 +219,44 @@ const PostCreate: React.FC = () => {
           <li><strong>清晰的标题：</strong>用简洁明了的标题概括您的内容</li>
           <li><strong>详细的描述：</strong>提供足够的背景信息和具体细节</li>
           <li><strong>代码格式：</strong>使用代码块来显示代码片段</li>
+          <li><strong>图表支持：</strong>使用 <code>/mermaid_chart图表代码/mermaid_chart</code> 插入图表</li>
+          <li><strong>数学公式：</strong>使用 <code>$公式$</code> 插入行内公式，<code>$$公式$$</code> 插入块级公式</li>
           <li><strong>相关内容：</strong>确保内容与技术相关</li>
           <li><strong>搜索现有：</strong>发帖前搜索是否已有相关讨论</li>
         </ul>
+        
+        <div className="mermaid-help">
+          <h4>📊 图表语法示例</h4>
+          <div className="mermaid-example">
+            <p><strong>流程图：</strong></p>
+            <pre><code>{`/mermaid_chart
+flowchart TD
+    A[开始] --> B{条件判断}
+    B -->|是| C[执行操作A]
+    B -->|否| D[执行操作B]
+    C --> E[结束]
+    D --> E
+/mermaid_chart`}</code></pre>
+            <p><strong>序列图：</strong></p>
+            <pre><code>{`/mermaid_chart
+sequenceDiagram
+    用户->>服务器: 发送请求
+    服务器->>数据库: 查询数据
+    数据库-->>服务器: 返回结果
+    服务器-->>用户: 响应数据
+/mermaid_chart`}</code></pre>
+          </div>
+          
+          <h4>🔢 数学公式语法示例</h4>
+          <div className="mermaid-example">
+            <p><strong>行内公式：</strong></p>
+            <pre><code>这是一个行内公式 $E=mc^2$ 的示例</code></pre>
+            <p><strong>块级公式：</strong></p>
+            <pre><code>{`$$
+\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}
+$$`}</code></pre>
+          </div>
+        </div>
       </div>
     </div>
     </UserStatusGuard>

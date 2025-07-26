@@ -1140,6 +1140,7 @@
 .markdown-content {
   line-height: 1.6;
   color: #333;
+  text-align: left;
 }
 
 .markdown-h1,
@@ -1421,4 +1422,186 @@
   .preview-container {
     max-height: 300px;
   }
+}
+
+/* Mermaid 帮助样式 */
+.mermaid-help {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #667eea;
+  border-radius: 6px;
+}
+
+.mermaid-help h4 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.mermaid-example {
+  font-size: 0.9rem;
+}
+
+.mermaid-example p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #495057;
+}
+
+.mermaid-example pre {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1rem 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.mermaid-example code {
+  color: #333;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.mermaid-help-compact {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.mermaid-help-compact h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.mermaid-help-compact ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+}
+
+.mermaid-help-compact li {
+  margin: 0.25rem 0;
+  color: #495057;
+}
+
+.mermaid-help-compact code {
+  background: #e9ecef;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: #e91e63;
+  font-weight: 500;
+}
+
+.post-edit-tips {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+}
+
+.post-edit-tips h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.post-edit-tips ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.post-edit-tips li {
+  margin: 0.5rem 0;
+  color: #495057;
+}
+
+.post-edit-tips code {
+  background: #e9ecef;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: #e91e63;
+  font-weight: 500;
+}
+
+/* Mermaid 渲染容器错误样式 */
+.mermaid-error {
+  padding: 1rem;
+  background: #fff5f5;
+  border: 1px solid #feb2b2;
+  border-radius: 6px;
+  color: #e53e3e;
+  font-size: 0.9rem;
+}
+
+.mermaid-error p {
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.mermaid-error details {
+  margin-top: 0.5rem;
+}
+
+.mermaid-error summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #c53030;
+}
+
+.mermaid-error pre {
+  background: #fed7d7;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}
+
+/* LaTeX 样式已删除，使用 KaTeX 原生样式 */
+
+/* 图片样式增强 */
+.markdown-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 8px 0;
+  display: block;
+}
+
+.markdown-img[alt="图片加载失败"] {
+  width: 100px;
+  height: 100px;
+  opacity: 0.5;
+  border: 2px dashed #ccc;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 链接样式增强 */
+.markdown-link {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.markdown-link:hover {
+  color: #0056b3;
+  border-bottom-color: #0056b3;
+}
+
+.markdown-link:visited {
+  color: #6f42c1;
 }

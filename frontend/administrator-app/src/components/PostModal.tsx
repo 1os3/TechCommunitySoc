@@ -1,7 +1,43 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { marked } from 'marked';
+import { Marked } from 'marked';
+import markedKatex from 'marked-katex-extension';
+import 'katex/dist/katex.min.css';
 import api from '../services/api';
 import './PostModal.css';
+import './enhanced-markdown.css';
+import MermaidRenderer from './MermaidRenderer';
+import { parseMermaidCharts } from '../utils/mermaidParser';
+
+// 创建一个独立的 marked 实例，避免全局污染和重复插件注册
+const createMarkedInstance = () => {
+  const markedInstance = new Marked();
+  
+  // 只添加一次 KaTeX 插件
+  markedInstance.use(markedKatex({
+    throwOnError: false,
+    nonStandard: true,
+    strict: false,
+    trust: true,
+    output: 'htmlAndMathml',
+    displayMode: false
+  } as any));
+  
+  markedInstance.setOptions({
+    breaks: true,
+    gfm: true,
+  });
+  
+  return markedInstance;
+};
+
+// 使用 WeakMap 或单例模式确保只创建一次实例
+let markedInstance: Marked | null = null;
+const getMarkedInstance = () => {
+  if (!markedInstance) {
+    markedInstance = createMarkedInstance();
+  }
+  return markedInstance;
+};
 
 interface PostDetail {
   id: number;
@@ -79,26 +115,72 @@ const PostModal: React.FC<PostModalProps> = ({ postId, isOpen, onClose }) => {
     return new Date(dateString).toLocaleString('zh-CN');
   };
 
-  const renderMarkdown = (content: string) => {
+  const renderMarkdownWithMermaid = (content: string) => {
     // 确保content存在且是字符串
     if (!content || typeof content !== 'string') {
-      return { __html: '' };
+      return <div></div>;
     }
 
+    // 获取配置好的 marked 实例
+    const markedInstance = getMarkedInstance();
+
+    // 解析 Mermaid 图表
+    const { content: processedContent, charts } = parseMermaidCharts(content);
+
+    if (charts.length === 0) {
+      // 没有图表，直接渲染原始内容
+      try {
+        const html = markedInstance.parse(content, { async: false }) as string;
+        return (
+          <div 
+            className="markdown-content enhanced-markdown"
+            dangerouslySetInnerHTML={{ __html: html }} 
+          />
+        );
+      } catch (error) {
+        console.error('Markdown渲染失败:', error);
+        return <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }} />;
+      }
+    }
+
+    // 有图表，先完整渲染markdown，再替换图表占位符
     try {
-      // 配置marked选项
-      marked.setOptions({
-        breaks: true, // 支持换行
-        gfm: true, // 支持GitHub风格的Markdown
-      });
+      // 先完整处理内容，确保LaTeX正确渲染
+      const html = markedInstance.parse(processedContent, { async: false }) as string;
+      const chartMap = new Map(charts.map(chart => [chart.id, chart]));
       
-      // 使用同步版本的marked
-      const html = marked.parse(content, { async: false }) as string;
-      return { __html: html };
+      // 使用React处理HTML和图表的混合内容
+      const renderHtmlWithCharts = () => {
+        const parts = html.split(/({{MERMAID_CHART:[^}]+}})/);
+        
+        return parts.map((part, index) => {
+          const chartMatch = part.match(/{{MERMAID_CHART:([^}]+)}}/);
+          if (chartMatch) {
+            const chartId = chartMatch[1];
+            const chart = chartMap.get(chartId);
+            if (chart) {
+              return <MermaidRenderer key={`chart-${index}`} id={chartId} chart={chart.chart} />;
+            }
+            return null;
+          }
+          
+          // 对于HTML部分，直接使用dangerouslySetInnerHTML
+          if (part.trim()) {
+            return <div key={`html-${index}`} dangerouslySetInnerHTML={{ __html: part }} />;
+          }
+          
+          return null;
+        }).filter(Boolean);
+      };
+      
+      return (
+        <div className="markdown-content enhanced-markdown">
+          {renderHtmlWithCharts()}
+        </div>
+      );
     } catch (error) {
       console.error('Markdown渲染失败:', error);
-      // 如果marked解析失败，回退到简单的文本显示
-      return { __html: content.replace(/\n/g, '<br>') };
+      return <div className="markdown-content enhanced-markdown" dangerouslySetInnerHTML={{ __html: processedContent.replace(/\n/g, '<br>') }} />;
     }
   };
 
@@ -143,10 +225,9 @@ const PostModal: React.FC<PostModalProps> = ({ postId, isOpen, onClose }) => {
               </div>
 
               <div className="post-content">
-                <div 
-                  className="markdown-content"
-                  dangerouslySetInnerHTML={renderMarkdown(post.content || '')}
-                />
+                <div className="markdown-content">
+                  {renderMarkdownWithMermaid(post.content || '')}
+                </div>
               </div>
             </div>
           ) : null}

@@ -151,7 +151,8 @@
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border: 1px solid #f0f0f0;
-  height: 400px;
+  min-height: 400px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -213,6 +214,10 @@
   background: #fafafa;
   border-radius: 6px;
   border-left: 3px solid #e8e8e8;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .log-time {
@@ -223,9 +228,9 @@
 
 .log-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .log-level {
@@ -243,6 +248,8 @@
   flex: 1;
   min-width: 0;
   word-break: break-word;
+  line-height: 1.4;
+  white-space: pre-wrap;
 }
 
 /* Empty State */
@@ -300,6 +307,7 @@
   .dashboard-card {
     height: auto;
     min-height: 300px;
+    max-height: none;
   }
   
   .stat-card {
